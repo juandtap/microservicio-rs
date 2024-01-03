@@ -1,5 +1,5 @@
 # Usa una imagen base con un servidor WildFly y Java
-FROM jboss/wildfly:latest
+FROM jboss/wildfly:25.0.0.Final
 
 # Copia el archivo WAR de tu aplicación al directorio de despliegue de WildFly
 COPY target/microservicios-rs.war /opt/jboss/wildfly/standalone/deployments/

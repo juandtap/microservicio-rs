@@ -1,5 +1,6 @@
 package ups.services;
 
+import jakarta.enterprise.inject.Default;
 import ups.model.Curso;
 
 import java.util.List;

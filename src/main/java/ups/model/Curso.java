@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Curso {
-     private int id;
+     private Integer id;
      private String nombre;
      private String descripcion;
      private String estado;
-     private int duracion;
+     private Integer duracion;
     
 }

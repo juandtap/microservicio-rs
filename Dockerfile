@@ -1,8 +1,8 @@
 # Usa una imagen base con un servidor WildFly y Java
-FROM jboss/wildfly:25.0.0.Final
+FROM quay.io/wildfly/wildfly
 
 # Copia el archivo WAR de tu aplicación al directorio de despliegue de WildFly
-COPY target/microservicios-rs.war /opt/jboss/wildfly/standalone/deployments/
+ADD target/microservicios-rs.war /opt/jboss/wildfly/standalone/deployments/
 
 # Expone el puerto HTTP predeterminado de WildFly
 EXPOSE 8080

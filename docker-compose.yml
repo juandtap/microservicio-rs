@@ -26,7 +26,6 @@ services:
       TZ:  America/Guayaquil
     ports:
       - 8082:8080
-      - 8899:8009
       - 9992:9990
       - 8787:8787
     command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -c standalone.xml -bmanagement 0.0.0.0 --debug *:8787

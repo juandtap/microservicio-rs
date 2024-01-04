@@ -1,12 +1,11 @@
 package ups.api;
 
-import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import ups.model.Curso;
-import ups.services.CursoService;
+import ups.services.CursoGestion;
 
 import java.util.List;
 
@@ -14,13 +13,13 @@ import java.util.List;
 public class CursoResource {
 
     @Inject
-    private CursoService service;
+    private CursoGestion service;
 
     @GET
     @Path("all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCursos(){
-        List<Curso> list =  service.listAll();
+        List<Curso> list =  service.getAll();
         return Response.ok().status(Response.Status.OK).entity(list).build();
     }
 
@@ -29,7 +28,7 @@ public class CursoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createCurso(Curso curso){
-        Curso c =  service.save(curso);
+        Curso c = service.save(curso);
         return Response.ok().status(Response.Status.CREATED).entity(c).build();
     }
 }

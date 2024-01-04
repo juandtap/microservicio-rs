@@ -1,0 +1,60 @@
+version: '3.6'
+
+services:
+  srvdb:
+    image: postgres
+    container_name: srvdb
+    hostname: srvdb
+    environment:
+      POSTGRES_USER: consultas
+      POSTGRES_DB: consultas
+      POSTGRES_PASSWORD: QueryConSql.pwd
+      TZ:  America/Guayaquil
+    ports:
+      - 5434:5432
+    networks:
+      - datalogger_net
+    volumes:
+      - pg_data2:/var/lib/postgresql/data
+
+
+  srvwildfly:
+    image: ups/microdocker
+    container_name: srvwildfly
+    hostname: srvwildfly
+    environment:
+      TZ:  America/Guayaquil
+    ports:
+      - 8082:8080
+      - 8899:8009
+      - 9992:9990
+      - 8787:8787
+    command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -c standalone.xml -bmanagement 0.0.0.0 --debug *:8787
+    depends_on:
+      - srvdb
+    networks:
+      - datalogger_net
+
+  admin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: info@jasoft.ec
+      PGADMIN_DEFAULT_PASSWORD: clave
+      TZ:  America/Guayaquil
+    ports:
+      - 5050:80
+    depends_on:
+      - srvdb
+    networks:
+      - datalogger_net
+
+volumes:
+  pg_data2:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /Users/Paul-Astudillo/datapg
+
+networks:
+  datalogger_net:

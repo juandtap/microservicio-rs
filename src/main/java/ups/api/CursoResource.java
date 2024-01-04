@@ -17,6 +17,7 @@ public class CursoResource {
     private CursoService service;
 
     @GET
+    @Path("all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCursos(){
         List<Curso> list =  service.listAll();
@@ -24,6 +25,7 @@ public class CursoResource {
     }
 
     @POST
+    @Path("nuevocurso")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createCurso(Curso curso){

@@ -26,6 +26,7 @@ services:
       TZ:  America/Guayaquil
     ports:
       - 8082:8080
+      - 8899:8009
       - 9992:9990
       - 8787:8787
     command: /opt/jboss/wildfly/bin/standalone.sh -b 0.0.0.0 -c standalone.xml -bmanagement 0.0.0.0 --debug *:8787
@@ -47,13 +48,21 @@ services:
     networks:
       - datalogger_net
 
+  angular_frontend:
+    image: juandtap/angular-front
+    container_name: angular_frontend
+    ports:
+      - 4200:4200
+    networks:
+      - datalogger_net
+
 volumes:
   pg_data2:
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: /Users/Paul-Astudillo/datapg
+      device: /Users/paul-astudillo/datapg
 
 networks:
   datalogger_net:

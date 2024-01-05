@@ -6,9 +6,9 @@ services:
     container_name: srvdb
     hostname: srvdb
     environment:
-      POSTGRES_USER: consultas
+      POSTGRES_USER: postgres
       POSTGRES_DB: consultas
-      POSTGRES_PASSWORD: QueryConSql.pwd
+      POSTGRES_PASSWORD: root
       TZ:  America/Guayaquil
     ports:
       - 5434:5432

@@ -7,7 +7,7 @@
            data source, this example data source is just for development and testing! -->
         <!-- The datasource is deployed as WEB-INF/datalogger-ds.xml, you
            can find it in the source at src/main/webapp/WEB-INF/datalogger-ds.xml -->
-        <jta-data-source>java:jboss/datasources/ejPostgresDS</jta-data-source>
+        <jta-data-source>java:jboss/datasources/myDS</jta-data-source>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="update" />
             <property name="javax.persistence.schema-generation.create-source" value="script" />

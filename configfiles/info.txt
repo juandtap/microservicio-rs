@@ -1,6 +1,0 @@
-En este directorio estan las copias de los archivos de configuracion mecesarios para definir el  datasource del
-servidor de wildfly.
-
-standalone.xml
-modules.xml
-postgresql-42.2.18.jar

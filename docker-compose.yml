@@ -19,7 +19,7 @@ services:
 
 
   srvwildfly:
-    image: ups/microdocker
+    image: juandtap/microdocker
     container_name: srvwildfly
     hostname: srvwildfly
     environment:
